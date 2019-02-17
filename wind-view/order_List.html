@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<meta charset="UTF-8">
+		<title>订单列表</title>
+		<link type="text/css" rel="stylesheet" href="fontsawesome/css/font-awesome.css"/>
+		<link type="text/css" rel="stylesheet" href="css/datepicker.css"/>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="main_box">
+			<h2><span></span>购买信息列表</h2>
+			<button onclick="selectReady()" class="btn blue_btn search" style="margin-left: 20px;margin-bottom: 20px" data-toggle="modal" data-target="#myOrder">下单</button>
+			<div class="cont_box">
+				<table border="0" cellspacing="0" cellpadding="0" class="table">
+				<thead>
+					<tr>
+						<th>购买编号</th>
+						<th>电脑名称</th>
+						<th>购买数量</th>
+						<th>订单总价</th>
+						<th>下单时间</th>
+						<th>物流状态</th>
+						<th width="200">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id="1"><!--此处id为进行编辑或删除时该条数据的唯一标识-->
+						<td>10000563</td>
+						<td>daier001测试</td>
+						<td>6</td>
+						<td>260000.00￥</td>
+						<td>18696532635</td>
+						<td>未到货</td>
+						<td>
+							<a href="javascript:void(0);" class="table_btn table_del del_btn">
+								<i class="fa fa-recycle"></i>
+								<span>到货</span>
+							</a>
+						</td>
+					</tr>
+					<tr id="2"><!--此处id为进行编辑或删除时该条数据的唯一标识-->
+						<td>10000563</td>
+						<td>daier002测试</td>
+						<td>5</td>
+						<td>210000.00￥</td>
+						<td>18696532635</td>
+						<td>未到货</td>
+						<td>
+							<a href="javascript:void(0);" class="table_btn table_del del_btn">
+								<i class="fa fa-recycle"></i>
+								<span>到货</span>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+		<!--新增商品模态框-->
+		<div class="modal fade" id="myOrder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document" >
+				<div class="modal-content" style="width:80%">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">下单</h4>
+					</div>
+					<div class="modal-body">
+						<form action="#" method="post" id="addPro_form">
+							<ul class="addpro_box">
+								<li>
+									<label style="display: none">购买编号：</label>
+									<input  id="orderId" type="text" style="display: none" value="" name="digits" required data-rule-digits="true" />
+								</li>
+								<li>
+									<label>电脑品牌：</label>
+									<select id="pcOrderBrand"  name="classfiy" required data-msg-required="所属分类不能为空">
+									<select>
+								</li>
+								<li>
+									<label>电脑名称：</label>
+									<select id="pcOrderName"  name="classfiy" required data-msg-required="所属分类不能为空">
+									<select>
+								</li>
+								<li>
+									<label>电脑单价：</label>
+									<input id="pcOrderPrice" type="text" oninput="refreshTotalMoney()" placeholder="请输入商品售价" id="pricein" name="pricein" required data-rule-pricein="true" data-msg-required="电脑单价不能为空"/>
+								</li>
+								<li>
+									<label>购买数量：</label>
+									<input id="pcBuyNum" type="text" oninput="refreshTotalMoney()" name="digits" value="0"  required data-rule-digits="true" data-msg-required="商品已购数量不能为空，无库存请填“0”" data-msg-digits="请输入正整数"/>
+								</li>
+								<li>
+									<label>总价：</label>
+									<input id="totalMoney" type="text"  name="digits" value="0"  required data-rule-digits="true" data-msg-required="商品已购数量不能为空，无库存请填“0”" data-msg-digits="请输入正整数"/>
+								</li>
+							</ul>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button type="submit" class="btn btn-primary" onclick="save()">下单</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--javascript include-->
+		<script src="js/order.js"></script>
+		<script src="js/jquery-2.2.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.dataTables.min.js"></script>
+		<script src="js/bootstrap-datepicker.js"></script>
+		<script src="js/jquery.validate.min.js"></script>
+	</body>
+</html>

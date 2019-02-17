@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商品列表</title>
+		<link type="text/css" rel="stylesheet" href="fontsawesome/css/font-awesome.css"/>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="main_box">
+			<h2><span></span>商品列表</h2>
+			<button onclick="fresh()" class="btn blue_btn search" style="margin-left: 20px" data-toggle="modal" data-target="#myModal">新增</button>
+			<form action="#" method="post" id="order_shform" style="float: right">
+				<div class="search_box clearfix">
+					<input id="search" type="text" class="f_left " name="order_code" placeholder="请输入电脑品牌或电脑名称" style="margin-right:15px;"/>
+					<input type="button" onclick="listPC()" value="搜索" class="btn blue_btn search"/>
+				</div>
+			</form>
+			<div class="cont_box">
+				<table border="0" cellspacing="0" cellpadding="0" class="table" id="table_box">
+				<thead>
+					<tr>
+						<th>电脑名称</th>
+						<th>电脑品牌</th>
+						<th>操作系统</th>
+						<th>商品单价</th>
+						<th>已购数量</th>
+						<th width="268">操作</th>
+					</tr>
+				</thead>
+				<tbody id="pclist">
+				</tbody>
+			</table>
+		</div>
+		</div>
+		<!--新增商品模态框-->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document" >
+				<div class="modal-content" style="width:80%">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">保存商品</h4>
+					</div>
+					<div class="modal-body">
+						<form action="#" method="post" id="addPro_form">
+							<ul class="addpro_box">
+								<li>
+									<label style="display: none">电脑编号：</label>
+									<input  id="pcid" type="text" style="display: none" value="" name="digits" required data-rule-digits="true" />
+								</li>
+								<li>
+									<label>电脑品牌：</label>
+									<select id="pcBrand"  name="classfiy" required data-msg-required="所属分类不能为空">
+										<option value="1">华为</option>
+										<option value="2">华硕</option>
+										<option value="3">戴尔</option>
+										<option value="4">小米</option>
+									<select>
+								</li>
+								<li>
+									<label>电脑名称：</label>
+									<input  id="pcName" type="text"  placeholder="请输入电脑名称" name="digits" required data-rule-digits="true" data-msg-required="商品库存不能为空，无库存请填“0”" data-msg-digits="请输入正整数"/>
+								</li>
+								<label>操作系统：</label>
+								<li>
+										<label style="font-size: 1px"><input  name="system" type="radio" checked="checked" value="1">Windows10</label>
+									    <label style="font-size: 1px"><input  name="system" type="radio" value="2">Windows8</label>
+									    <label style="font-size: 1px"><input  name="system" type="radio" value="3">Windows7</label>
+									    <label style="font-size: 1px"><input  name="system" type="radio" value="4">Ubuntu</label>
+								</li>
+								<li>
+									<label>电脑单价：</label>
+									<input id="pcPrice" type="text" placeholder="请输入商品售价" id="pricein" name="pricein" required data-rule-pricein="true" data-msg-required="电脑单价不能为空"/>
+								</li>
+								<li>
+									<label hidden="hidden">已购数量：</label>
+									<input type="text" style="display:none"  name="digits" value="0"  required data-rule-digits="true" data-msg-required="商品已购数量不能为空，无库存请填“0”" data-msg-digits="请输入正整数"/>
+								</li>
+							</ul>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button type="submit" class="btn btn-primary" onclick="save()">保存商品</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--javascript include-->
+		<script src="js/jquery-2.2.1.min.js"></script>
+		<script src="js/computer.js"></script>
+		<script src="js/jquery.dataTables.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-datepicker.js"></script>
+		<script src="js/jquery.validate.min.js"></script>
+	</body>
+</html>

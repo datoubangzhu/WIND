@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guotai.mapper.OrderMapper">
+    <resultMap id="BaseResultMap" type="com.guotai.entity.PurchasedInfo">
+        <id column="purchaseid" property="purchaseId"/>
+        <result column="pcid" property="pcId"/>
+        <result column="num" property="num"/>
+        <result column="totalmoney" property="totalMoney"/>
+        <result column="purchasetime" property="purchaseTime"/>
+        <result column="status" property="status"/>
+    </resultMap>
+    <insert id="insertOrder">
+        insert purchasedinfo values(#{purchaseId},#{pcid},#{num},#{totalmoney},#{purchasetime},#{status})
+    </insert>
+</mapper>

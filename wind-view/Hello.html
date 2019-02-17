@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>欢迎页面</title>
+		<link type="text/css" rel="stylesheet" href="fontsawesome/css/font-awesome.css"/>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	</head>
+	<body>
+		<!--今日预约-->
+		<div class="hello_box hello_order">
+			<h2><span></span>欢迎页面</h2>
+			<div class="hello_info">
+				领导您好，请从点击上方工具栏开始查阅。</br>
+				电脑信息管理部分内容已全部完成，购买信息管理内容完成金额刷新，下拉框动态加载等功能。
+			</div>
+		</div>
+
+		<!--javascript include-->
+		<script src="js/jquery-2.2.1.min.js"></script>
+		<script src="js/tipSuppliers.js"></script>
+		<script>
+			$(function(){
+				function box(){
+					var bodyH = $("body").height(),
+						bodyW = $("body").width(),
+						boxL = parseInt($(".hello_box").css("margin-left"));
+					$(".hello_order").css({"width":"1200px","height":parseInt(bodyH)-70});
+				};
+				box();
+				$(window).resize(function(){
+					box();
+				});
+			});
+		</script>
+	</body>
+</html>

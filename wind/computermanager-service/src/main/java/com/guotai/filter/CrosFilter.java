@@ -1,0 +1,55 @@
+/*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ * Copyright (c) 2012-2019. 赵贵明 Inc.
+ * pawo-power All rights reserved.
+ */
+
+package com.guotai.filter;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
+
+import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * <p> 跨域过滤器 </p>
+ *
+ * <pre> Created: 2019-01-29 09:39  </pre>
+ * <pre> Project: pawo-power  </pre>
+ *
+ * @author gmzhao
+ * @version 1.0
+ * @since JDK 1.7
+ */
+@WebFilter("/*")
+@Slf4j
+@Component
+public class CrosFilter implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
+
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+        HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
+        httpServletResponse.setHeader("Access-control-Allow-Origin", httpServletRequest.getHeader("Origin"));
+        httpServletResponse.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS,PUT,DELETE");
+        httpServletResponse.setHeader("Access-Control-Allow-Headers", httpServletRequest.getHeader("Access-Control-Request-Headers"));
+        httpServletResponse.setHeader("Access-Control-Max-Age", "3600");
+        httpServletResponse.addHeader("Access-Control-Allow-Credentials", "true");
+        //预检请求通过
+        httpServletResponse.setStatus(HttpStatus.OK.value());
+        filterChain.doFilter(servletRequest,servletResponse);
+    }
+
+    @Override
+    public void destroy() {
+
+    }
+}
