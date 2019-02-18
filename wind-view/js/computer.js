@@ -173,7 +173,7 @@ function add(param){
             $("#myModal").modal('hide');
         }
     });
-    
 
-    
+
+
 }
