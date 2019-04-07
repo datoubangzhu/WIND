@@ -1,5 +1,6 @@
-## ERP管理系统页面
-技术选型： Sringboot + 
+## 管理系统demo
+
+技术选型： Sringboot + SpringCloud + Mybatis
 
 - 上传下载、导入导出
 - 地图展示
