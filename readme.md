@@ -1,4 +1,4 @@
-## 管理系统demo
+## 管理系统模板demo
 
 技术选型： Sringboot + SpringCloud + Mybatis
 
