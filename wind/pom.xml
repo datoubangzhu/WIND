@@ -71,5 +71,6 @@
     <module>computermanager-app</module>
     <module>computermanager-service</module>
     <module>computermanager-dao</module>
+    <module>computermanager-util</module>
   </modules>
 </project>

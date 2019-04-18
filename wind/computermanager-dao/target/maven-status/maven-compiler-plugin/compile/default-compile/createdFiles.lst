@@ -1,0 +1,4 @@
+com\guotai\entity\PCInfo.class
+com\guotai\mapper\OrderMapper.class
+com\guotai\entity\PurchasedInfo.class
+com\guotai\mapper\PCInfoMapper.class
